@@ -3,6 +3,7 @@
 
 import pandas as pd
 import plotly.express as px
+import plotly.figure_factory as ff
 
 # Reading in from input.csv file
 input_data = pd.read_csv('input.csv', sep=';', engine='python', skiprows=2, header=None)
@@ -23,3 +24,13 @@ figure_1.update_layout(title={
         'yanchor': 'top'})
 figure_1.show()
 
+X = input_data.values
+figure_2 = ff.create_dendrogram(X, orientation='right')
+figure_2.update_layout(width=1200, height=700)
+figure_2.update_layout(title={
+        'text': "Dendrogram",
+        'y': 0.9,
+        'x': 0.5,
+        'xanchor': 'center',
+        'yanchor': 'top'})
+figure_2.show()
