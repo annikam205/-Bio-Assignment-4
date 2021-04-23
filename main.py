@@ -2,6 +2,7 @@
 # Link to GitHub https://github.com/annikam205/-Bio-Assignment-4
 
 import pandas as pd
+import plotly.express as px
 
 # Reading in from input.csv file
 input_data = pd.read_csv('input.csv', sep=';', engine='python', skiprows=2, header=None)
@@ -12,6 +13,13 @@ input_data = input_data.replace(',', '.', regex=True)
 x_axis = pd.to_numeric(input_data['X'], errors='raise', downcast=None)
 y_axis = pd.to_numeric(input_data['Y'], errors='raise', downcast=None)
 
-print(input_data)
-print(x_axis)
-print(y_axis)
+# Creating a scatter plot
+figure_1 = px.scatter(x=x_axis, y=y_axis)
+figure_1.update_layout(title={
+        'text': "Scatter plot of input.csv data",
+        'y': 1.0,
+        'x': 0.5,
+        'xanchor': 'center',
+        'yanchor': 'top'})
+figure_1.show()
+
