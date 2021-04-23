@@ -24,9 +24,12 @@ figure_1.update_layout(title={
         'yanchor': 'top'})
 figure_1.show()
 
+# Using create_dendrogram(...) to perform the agglomerative hierarchical algorithm with Euclidean distance
+# According to the method if no distfun parameter is provided the default is euclidean
 X = input_data.values
 figure_2 = ff.create_dendrogram(X, orientation='right')
 figure_2.update_layout(width=1200, height=700)
+# Labels for x (Euclidean distance) and y (index of values) is missing because I could not find the proper way in plotly.express to insert those
 figure_2.update_layout(title={
         'text': "Dendrogram",
         'y': 0.9,
