@@ -3,10 +3,12 @@
 
 import pandas as pd
 
+# Reading in from input.csv file
 input_data = pd.read_csv('input.csv', sep=';', engine='python', skiprows=2, header=None)
 input_data.columns = ['X', 'Y']
 input_data = input_data.replace(',', '.', regex=True)
 
+# Converting data from x and y columns to numeric values
 x_axis = pd.to_numeric(input_data['X'], errors='raise', downcast=None)
 y_axis = pd.to_numeric(input_data['Y'], errors='raise', downcast=None)
 
